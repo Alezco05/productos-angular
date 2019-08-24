@@ -1,0 +1,12 @@
+  <img class="banner" src="../../../assets/nature.jpg" />
+  <h3 class="ciudad">{{ producto.ciudad }}</h3>
+  <h2 class="left"><a [routerLink]="['/productos/', indice]" class="producto">{{ producto.producto }}</a></h2>
+  <p class="precio">Desde {{ producto.pais }} {{ producto.precio | currency:'DOL':'$':'1.2-2'  }}</p>
+  <ul>
+      <li><img src="../../../assets/icon/rating.svg" class="start" ></li>
+      <li><a [routerLink]="['/productos/valorar',indice]" [queryParams]="{valorar:'1'}">{{producto.valoracion | number:'1.0-0'}}</a></li>
+      <li>({{producto.visitas}})</li>
+      <li><img src="../../../assets/icon/heart.svg" class="end" [ngClass]="{ orange: click === true }" (click)="addClass()"></li>
+      
+  </ul>
+ 

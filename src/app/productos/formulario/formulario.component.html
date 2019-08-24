@@ -1,0 +1,70 @@
+<div class="box" *ngIf="!valor">
+  <form
+    class="item"
+    #f="ngForm"
+    (ngSubmit)="f.form.valid && onGuardarPersona()"
+  >
+    <input
+      type="text"
+      name="ciudad"
+      id="ciudad"
+      placeholder="Ciudad"
+      [(ngModel)]="ciudadInput"
+      required
+    />
+    <input
+      type="text"
+      name="producto"
+      id="producto"
+      placeholder="Producto"
+      [(ngModel)]="productoInput"
+      required
+    />
+    <input
+      type="text"
+      name="pais"
+      id="pais"
+      placeholder="Pais"
+      [(ngModel)]="paisInput"
+      required
+    />
+    <input
+      type="number"
+      name="precio"
+      id="precio"
+      placeholder="Precio"
+      [(ngModel)]="precioInput"
+      required
+    />
+    <button type="submit" style="cursor: pointer">
+      +
+    </button>
+    <button
+      type="submit"
+      style="cursor: pointer"
+      class="buttonRed"
+      *ngIf="index != null"
+      (click)="eliminarProducto()"
+    >
+      -
+    </button>
+  </form>
+</div>
+
+<div class="box" *ngIf="valor">
+    <h1>Que te parece el producto {{productoInput}}</h1>
+  <form
+    class="item"
+    #f="ngForm"
+    (ngSubmit)="f.form.valid && onValorarProducto()"
+  >
+
+  <select name="selected" [(ngModel)]="selectedOption">
+      <option *ngFor="let item of numbers" [value]="item">{{item}}</option>
+  </select>
+    
+    <button type="submit" style="cursor: pointer">
+      +
+    </button>
+  </form>
+</div>

@@ -1,0 +1,25 @@
+<div class="contendor">
+  <form style="text-align: left">
+      <input class="ordenar" type="submit" value="Ordenar"/>
+  <select name="ordenar" (click)="ordenarProductos()"  [(ngModel)]="ordenarOption">
+    <option *ngFor="let item of opciones" [value]="item">{{item}}</option>
+  </select>
+</form>
+<p>
+  Pagina 1 de 14 | 1 2 3 4 5 .... 10
+</p>
+</div>  
+<div class="container">
+    <app-producto 
+    *ngFor="let productoELemento of productos; let i = index"
+    [producto]="productoELemento"
+    [indice]="i"
+    ></app-producto>
+</div>
+<div class="box">
+    <h1 *ngIf="info"> No hay productos por mostrar Agregalos !!!</h1>
+</div>
+<div style="text-align: center">
+  <button style="cursor: pointer" (click)="agregar()">+</button>
+</div>
+<router-outlet></router-outlet>
